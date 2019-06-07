@@ -1,0 +1,22 @@
+{
+  "name": "test-perf",
+  "version": "1.0.0",
+  "description": "Measure performance and reliability of Typescript's test suite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandersn/test-perf.git"
+  },
+  "author": "Nathan Shively-Sanders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandersn/test-perf/issues"
+  },
+  "homepage": "https://github.com/sandersn/test-perf#readme",
+  "devDependencies": {
+    "@types/node": "^12.0.7"
+  }
+}
