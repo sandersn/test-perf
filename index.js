@@ -10,7 +10,7 @@ async function main() {
     // const commits = await git.log({ from: "f617d1641b00366ff9c5684fec06cec7f1c26d2e", to: "master" })
     /** @type {Edits} */
     const map = new Map()
-    await collectCommits(git, "release-3.1", "master", files => fillMap(files, map))
+    await collectCommits(git, "release-3.1", "master", undefined, files => fillMap(files, map))
     console.log()
     format(map)
 }

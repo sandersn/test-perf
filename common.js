@@ -27,13 +27,14 @@ function parseFiles(s) {
  * @param {import('simple-git/promise').SimpleGit} git
  * @param {string} from
  * @param {string} to
+ * @param {string | undefined} author - only include commits from this author
  * @param {(files: string[]) => void} update
  */
-module.exports.collectCommits = async function(git, from, to, update) {
+module.exports.collectCommits = async function(git, from, to, author, update) {
     let i = 0
     for (const commit of (await git.log({ from, to })).all) {
         i++
-        if (isMergeCommit(commit.message) || isSquashMergeMessage(commit.message)) {
+        if ((!author || commit.author_name === author) && isMergeCommit(commit.message) || isSquashMergeMessage(commit.message)) {
             readline.clearLine(process.stdout, /*left*/ -1)
             readline.cursorTo(process.stdout, 0)
             process.stdout.write(i + ": " + commit.date)
